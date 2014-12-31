@@ -21,7 +21,12 @@ var server = new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   hot: true
 });
-
+// allow server to render any route
+server.use('/', function(req, res) {
+  Router.run(Routes, req.path,  function (Handler) {
+    res.send(React.renderToString(React.createElement(Handler, null)));
+  });
+});
 server.listen(3000, 'localhost', function (err, result) {
   if (err) {
     console.log(err);
