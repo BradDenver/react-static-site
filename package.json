@@ -1,0 +1,20 @@
+{
+  "name": "react-static-site",
+  "version": "1.0.0",
+  "description": "an experiment in generating a static site from react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {
+    "node-jsx": "^0.12.4",
+    "react": "^0.12.2"
+  },
+  "devDependencies": {
+    "jsx-loader": "^0.12.2",
+    "react-hot-loader": "^1.0.4",
+    "webpack": "^1.4.15",
+    "webpack-dev-server": "^1.7.0"
+  }
+}
