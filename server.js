@@ -2,17 +2,19 @@ require('node-jsx').install();
 
 var fs = require('fs'),
   React = require('react'),
+  Router = require('react-router'),
   webpack = require('webpack'),
   WebpackDevServer = require('webpack-dev-server'),
   config = require('./webpack.config'),
-  Layout = require('./elements/Layout.jsx');
+  Layout = require('./elements/Layout.jsx'),
+  Routes = require('./elements/Routes.jsx');
 
 
 // create the index.html to be used by webpack
-fs.writeFileSync('dev/index.html', React.renderToString(React.createElement(Layout, {
-  title: 'React Static Site',
-  children: 'Hello World'
-})));
+Router.run(Routes, '/',  function (Handler) {
+  fs.writeFileSync('dev/index.html', React.renderToString(React.createElement(Handler, null)));
+});
+
 
 var server = new WebpackDevServer(webpack(config), {
   contentBase: './dev',
