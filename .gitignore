@@ -3,3 +3,5 @@
 /bower_components/
 
 /dev/index.html
+
+/npm-debug.log

@@ -1,6 +1,5 @@
 var React = require('react'),
   Router = require('react-router'),
-  Layout = require('../elements/Layout.jsx'),
   Routes = require('../elements/Routes.jsx');
 
 require('../bower_components/pure/pure.css');

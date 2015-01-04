@@ -1,40 +1,76 @@
 var webpack = require('webpack');
 
-module.exports = {
-  // Entry point for static analyzer:
-  entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/dev-server',
-    './dev/entry.jsx'
-  ],
+var outputPath = __dirname + '/dev',
+  outputPublicPath =  'http://localhost:3000/scripts/';
 
-  output: {
-    // Where to put build results when doing production builds:
-    // (Server doesn't write to the disk, but this is required.)
-    path: __dirname,
-
-    // JS filename you're going to use in HTML
-    filename: 'bundle.js',
-
-    // Path you're going to use in HTML
-    publicPath: 'http://localhost:3000/scripts/'
-  },
-
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
-
-  resolve: {
-    // Allow to omit extensions when requiring these files
-    extensions: ['', '.js', '.jsx']
-  },
-
-  module: {
-    loaders: [
-      // Pass *.css files through css-loader and style-loader transforms
-      { test: /\.css$/, loader: 'style!css' },
-      // Pass *.jsx files through jsx-loader transform
-      { test: /\.jsx$/, loaders: ['react-hot', 'jsx'] },
-    ]
-  }
+var resolveCommon = {
+  // Allow to omit extensions when requiring these files
+  extensions: ['', '.js', '.jsx']
 };
+
+var moduleCommon = {
+  loaders: [
+    // Pass *.css files through css-loader and style-loader transforms
+    { test: /\.css$/, loader: 'style!css' },
+    // Pass *.jsx files through jsx-loader transform
+    { test: /\.jsx$/, loaders: ['react-hot', 'jsx'] },
+  ]
+};
+
+module.exports = [
+  {
+    name: 'browser',
+    // Entry point for static analyzer:
+    entry: [
+      'webpack-dev-server/client?http://localhost:3000',
+      'webpack/hot/dev-server',
+      './dev/entry.jsx'
+    ],
+
+    output: {
+      // Where to put build results when doing production builds:
+      path: outputPath,
+
+      // JS filename you're going to use in HTML
+      filename: 'bundle.js',
+
+      // Path you're going to use in HTML
+      publicPath: outputPublicPath,
+    },
+
+    plugins: [
+      new webpack.HotModuleReplacementPlugin()
+    ],
+
+    resolve: resolveCommon,
+
+    module: moduleCommon
+  },
+  {
+    name: 'server',
+
+    target: 'node',
+
+    // Entry point for static analyzer:
+    entry: [
+      './dev/page.jsx'
+    ],
+
+    output: {
+      // Where to put build results when doing production builds:
+      path: outputPath,
+
+      // JS filename you're going to use in HTML
+      filename: 'bundlePage.js',
+
+      // Path you're going to use in HTML
+      publicPath: outputPublicPath,
+
+      libraryTarget: "commonjs2"
+    },
+
+    resolve: resolveCommon,
+
+    module: moduleCommon
+  }
+];

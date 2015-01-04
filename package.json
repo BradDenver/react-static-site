@@ -4,15 +4,13 @@
   "description": "an experiment in generating a static site from react",
   "main": "index.js",
   "scripts": {
+    "start": "webpack --progress && node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "dependencies": {
-    "node-jsx": "^0.12.4",
     "react": "^0.12.2",
-    "react-router": "^0.11.6"
-  },
-  "devDependencies": {
+    "react-router": "^0.11.6",
     "css-loader": "^0.9.0",
     "jsx-loader": "^0.12.2",
     "react-hot-loader": "^1.0.4",
