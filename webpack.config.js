@@ -14,6 +14,7 @@ var moduleCommon = {
     { test: /\.css$/, loader: 'style!css' },
     // Pass *.jsx files through jsx-loader transform
     { test: /\.jsx$/, loaders: ['react-hot', 'jsx'] },
+    { test: /\.html$/, loader: 'raw' },
   ]
 };
 

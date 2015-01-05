@@ -5,15 +5,14 @@ var React = require('react'),
   DefaultRoute = Router.DefaultRoute,
   RouteHandler = Router.RouteHandler,
   Layout = require('./Layout.jsx'),
-  Home = require('./Home.jsx'),
-  About = require('./About.jsx');
+  Page = require('./Page.jsx');
 
 
 // create the index.html to be used by webpack
 var Routes = (
   <Route name="home" path="/" handler={Layout}>
-    <Route name="about" handler={About}/>
-    <DefaultRoute handler={Home}/>
+    <Route name="about" handler={Page}/>
+    <DefaultRoute handler={Page}/>
   </Route>
 );
 

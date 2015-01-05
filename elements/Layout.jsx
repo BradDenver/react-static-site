@@ -13,7 +13,7 @@ var Layout = React.createClass({
 
   render: function() {
     var script = (process.env.NODE_ENV!=='production') ? <script src="http://localhost:3000/scripts/bundle.js"></script> : '';
-    var title = paths.titleForPath(this.getPathname());
+    var title = paths.titleForPath(this.getPathname()) + ' - React Static Site';
     return (
       <html>
         <head>
