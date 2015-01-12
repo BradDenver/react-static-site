@@ -1,11 +1,11 @@
 var React = require('react'),
-  LayoutNav = require('./LayoutNav.jsx');
-  Router = require('react-router');
+  LayoutNav = require('./LayoutNav.jsx'),
+  Router = require('react-router'),
   RouteHandler = Router.RouteHandler,
-  paths = require('../paths.js');
+  Paths = require('./PathsMixin');
 
 var Layout = React.createClass({
-  mixins: [Router.State],
+  mixins: [Router.State, Paths],
 
   getDefaultProps: function() {
     return {title: 'React Static Site'};
@@ -13,7 +13,7 @@ var Layout = React.createClass({
 
   render: function() {
     var script = (process.env.NODE_ENV!=='production') ? <script src="http://localhost:3000/scripts/bundle.js"></script> : '';
-    var title = paths.titleForPath(this.getPathname()) + ' - React Static Site';
+    var title = this.getPathMeta('title') + ' - React Static Site';
     return (
       <html>
         <head>

@@ -12,6 +12,7 @@ var LayoutNav = React.createClass({
           <ul>
             <li><Link to="home">Home</Link></li>
             <li><Link to="about">About</Link></li>
+            <li><Link to="blog">Blog</Link></li>
           </ul>
         </div>
       </nav>

@@ -1,13 +1,14 @@
 var React = require('react'),
-  Router = require('react-router');
+  Router = require('react-router'),
+  Paths = require('./PathsMixin');
     
 var Page = React.createClass({
   
-  mixins: [Router.State],
+  mixins: [Router.State, Paths],
   
   render: function() {
-    var content = paths.pageForPath(this.getPathname()),
-      title = paths.titleForPath(this.getPathname());
+    var content = this.getPage();
+      title = this.getPathMeta('title');
     return (
       <div>
         <h1>{title}</h1>
