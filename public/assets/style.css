@@ -1,0 +1,29 @@
+#layout {
+  padding-left: 150px;
+  left: 0;
+  position: relative;
+}
+
+#layout-nav {
+  left: 150px;
+  margin-left: -150px;
+  width: 150px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: #191818;
+  color: #999;
+  overflow-y: auto;
+  -webkit-overflow-scroll: touch;
+}
+
+#layout-nav .pure-menu,
+#layout-nav .pure-menu ul {
+    border: none;
+    background: transparent;
+}
+
+main {
+  padding: 2em;
+}

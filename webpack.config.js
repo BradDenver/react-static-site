@@ -74,5 +74,32 @@ module.exports = [
     resolve: resolveCommon,
 
     module: moduleCommon
+  },
+  {
+    name: 'static',
+
+    target: 'node',
+
+    // Entry point for static analyzer:
+    entry: [
+      './dev/staticPage.jsx'
+    ],
+
+    output: {
+      // Where to put build results when doing production builds:
+      path: outputPath,
+
+      // JS filename you're going to use in HTML
+      filename: 'bundleStaticPage.js',
+
+      // Path you're going to use in HTML
+      publicPath: outputPublicPath,
+
+      libraryTarget: "commonjs2"
+    },
+
+    resolve: resolveCommon,
+
+    module: moduleCommon
   }
 ];

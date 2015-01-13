@@ -28,9 +28,6 @@ var paths = {
 
 };
 
-var pageReq = require.context('./pages', false, /^\.\/.*\.html$/),
-  postReq = require.context('./posts', false, /^\.\/.*\.md$/);
-
 module.exports = {
   allPaths: function() {
     return paths;
@@ -39,10 +36,16 @@ module.exports = {
     return paths.posts;
   },
   pageForPath: function(path) {
-    return pageReq('./' + paths[path].page);
+    return this.pageReq()('./' + paths[path].page);
   },
   postForPath: function(path) {
-    return postReq('./' + paths.posts[path].md);
+    return this.postReq()('./' + paths.posts[path].md);
+  },
+  pageReq: function() {
+    return require.context('./pages', false, /^\.\/.*\.html$/);
+  },
+  postReq: function() {
+    return require.context('./posts', false, /^\.\/.*\.md$/);
   }
 };
 
