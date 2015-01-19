@@ -6,7 +6,7 @@ Note: dev/bundle*.js etc have been committed purely to have a complete example. 
 `npm start`
 
 ## Add a new post
-* update pages.js data
+* update [paths.js](https://github.com/BradDenver/react-static-site/blob/master/paths.js) data
 * add md file in `posts/` directory
 
 ## Build for production
