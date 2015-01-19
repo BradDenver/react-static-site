@@ -54,43 +54,17 @@ module.exports = [
     target: 'node',
 
     // Entry point for static analyzer:
-    entry: [
-      './dev/page.jsx'
-    ],
-
-    output: {
-      // Where to put build results when doing production builds:
-      path: outputPath,
-
-      // JS filename you're going to use in HTML
-      filename: 'bundlePage.js',
-
-      // Path you're going to use in HTML
-      publicPath: outputPublicPath,
-
-      libraryTarget: "commonjs2"
+    entry: {
+      bundlePage: './dev/page.jsx',
+      bundleStaticPage: './dev/staticPage.jsx'
     },
 
-    resolve: resolveCommon,
-
-    module: moduleCommon
-  },
-  {
-    name: 'static',
-
-    target: 'node',
-
-    // Entry point for static analyzer:
-    entry: [
-      './dev/staticPage.jsx'
-    ],
-
     output: {
       // Where to put build results when doing production builds:
       path: outputPath,
 
       // JS filename you're going to use in HTML
-      filename: 'bundleStaticPage.js',
+      filename: '[name].js',
 
       // Path you're going to use in HTML
       publicPath: outputPublicPath,
