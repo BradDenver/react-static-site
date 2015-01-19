@@ -6,7 +6,7 @@ var fs = require('fs'),
   webpack = require('webpack'),
   config = require('./webpack.config');
 
-webpack(config[2], function(err, stats) {
+webpack(config[1], function(err, stats) {
 
   if(err) {
     
