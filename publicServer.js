@@ -1,11 +1,12 @@
 var express = require('express');
-var app = express();
+var app = express(),
+  port = process.env.PORT || 4000;
 
 app.use(express.static(__dirname + '/public', {'extensions': ['html']}));
 
-app.listen(4000, 'localhost', function (err, result) {
+app.listen(port, function (err, result) {
   if (err) {
     console.log(err);
   }
-  console.log('Listening at localhost:4000');
+  console.log('Listening at localhost' + port);
 });
