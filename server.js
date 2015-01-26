@@ -2,7 +2,8 @@
 var fs = require('fs'),
   webpack = require('webpack'),
   WebpackDevServer = require('webpack-dev-server'),
-  config = require('./webpack.config');
+  config = require('./webpack.config'),
+  port = process.env.port || 3000;
 
 
 // create the index.html to be used by webpack
@@ -18,9 +19,9 @@ var server = new WebpackDevServer(webpack(config[0]), {
 server.use('/', function(req, res) {
   res.send(page(req));
 });
-server.listen(3000, 'localhost', function (err, result) {
+server.listen(port, 'localhost', function (err, result) {
   if (err) {
     console.log(err);
   }
-  console.log('Listening at localhost:3000');
+  console.log('Listening at localhost:' + port);
 });
