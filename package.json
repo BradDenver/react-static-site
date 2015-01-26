@@ -6,7 +6,7 @@
   "scripts": {
     "build-static": "node build && node publicServer",
     "postinstall": "./node_modules/bower/bin/bower install",
-    "start": "webpack --progress && node server",
+    "start": "node build && node publicServer",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
